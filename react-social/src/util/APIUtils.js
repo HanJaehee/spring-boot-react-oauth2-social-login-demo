@@ -23,6 +23,21 @@ const request = (options) => {
     );
 };
 
+export function updateUserInfo(){
+    if(!localStorage.getItem(ACCESS_TOKEN)){
+        return Promise.reject("No accessToken set.");
+    }
+
+    return request({
+        url: API_BASE_URL + "/user/me",
+        method: 'POST',
+        body: JSON.stringify({
+            youtubeList: [10,20,30],
+            blogList: [5,6,7,3],
+            jobList: [5,3,2,5],
+        })
+    })
+}
 export function getCurrentUser() {
     if(!localStorage.getItem(ACCESS_TOKEN)) {
         return Promise.reject("No access token set.");

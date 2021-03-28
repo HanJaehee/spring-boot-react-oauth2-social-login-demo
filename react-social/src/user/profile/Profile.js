@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { updateUserInfo } from '../../util/APIUtils';
 import './Profile.css';
 
 class Profile extends Component {
@@ -22,6 +23,23 @@ class Profile extends Component {
                                 )
                             }
                         </div>
+                        <button onClick={()=>{
+                            const token = localStorage.getItem("accessToken");
+                            console.log(token);
+                            }}>토큰 출력</button>
+                        <button onClick={()=>{
+                            console.log(this.props.currentUser);
+                        }}>userme 호출</button>
+                        <button onClick={()=>{
+                            updateUserInfo().then((res)=>{
+                                console.log(res);
+                                // this.setState({
+                                //     currentUser: res
+                                // })
+                            }).catch((err)=>{
+                                console.log(err);
+                            })
+                        }}>updateUserInfo 호출</button>
                         <div className="profile-name">
                            <h2>{this.props.currentUser.name}</h2>
                            <p className="profile-email">{this.props.currentUser.email}</p>

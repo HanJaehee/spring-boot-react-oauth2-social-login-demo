@@ -8,6 +8,8 @@ class OAuth2RedirectHandler extends Component {
         var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
 
         var results = regex.exec(this.props.location.search);
+        console.log(name);
+        console.log(results);
         return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
     };
 
