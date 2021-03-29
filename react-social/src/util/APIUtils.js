@@ -32,7 +32,7 @@ export function updateUserInfo(){
         url: API_BASE_URL + "/user/me",
         method: 'POST',
         body: JSON.stringify({
-            youtubeList: [10,20,30],
+            youtubeList: [46,46,46],
             blogList: [5,6,7,3],
             jobList: [5,3,2,5],
         })

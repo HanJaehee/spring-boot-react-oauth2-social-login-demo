@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { updateUserInfo } from '../../util/APIUtils';
+import { updateUserInfo, getCurrentUser } from '../../util/APIUtils';
 import './Profile.css';
 
 class Profile extends Component {
@@ -28,6 +28,9 @@ class Profile extends Component {
                             console.log(token);
                             }}>토큰 출력</button>
                         <button onClick={()=>{
+                            getCurrentUser().then((res)=>{
+                                console.log(res);
+                            })
                             console.log(this.props.currentUser);
                         }}>userme 호출</button>
                         <button onClick={()=>{
